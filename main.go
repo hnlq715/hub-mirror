@@ -144,14 +144,8 @@ func main() {
 	}
 
 	tmpl, err := template.New("pull_images").Parse(`{{- range . -}}
-	
-{{if .Repository}}
-# if your repository is private,please login...
-# docker login {{ .Repository }} --username={your username}
-{{end}}	
 docker pull {{ .Target }}
 docker tag {{ .Target }} {{ .Source }}
-
 {{ end -}}`)
 	if err != nil {
 		panic(err)
