@@ -26,5 +26,5 @@ jobs:
       - name: Run code
         run: |
           export MIRROR=`cat mirror.txt`
-          go run main.go --username=${{ secrets.DOCKER_USERNAME }} --password=${{ secrets.DOCKER_TOKEN }} --repository=${{ secrets.DOCKER_REPOSITORY }} --content='$MIRROR' --maxContent=20 --outputPath=output.sh
+          go run main.go --username=${{ secrets.DOCKER_USERNAME }} --password=${{ secrets.DOCKER_TOKEN }} --repository=${{ secrets.DOCKER_REPOSITORY }} --content=$MIRROR --maxContent=20 --outputPath=output.sh
           cat output.sh
