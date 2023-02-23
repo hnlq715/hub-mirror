@@ -17,6 +17,7 @@ import (
 )
 
 var (
+	file       = pflag.StringP("file", "f", "", "原始镜像文件，格式为：{ \"hub-mirror\": [] }")
 	content    = pflag.StringP("content", "", "", "原始镜像，格式为：{ \"hub-mirror\": [] }")
 	maxContent = pflag.IntP("maxContent", "", 10, "原始镜像个数限制")
 	username   = pflag.StringP("username", "", "", "docker hub 用户名")
@@ -29,6 +30,16 @@ func main() {
 	pflag.Parse()
 
 	fmt.Println("验证原始镜像内容")
+
+	if *file != "" {
+		data, err := os.ReadFile(*file)
+		if err != nil {
+			panic(err)
+		}
+
+		*content = string(data)
+	}
+
 	var hubMirrors struct {
 		Content []string `json:"hub-mirror"`
 	}
