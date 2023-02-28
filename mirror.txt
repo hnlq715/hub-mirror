@@ -3,7 +3,7 @@
 "hub-mirror": [
 "ghcr.io/douyu/exampleserver-dev:latest",
 "ghcr.io/douyu/juno-admin-dev:latest",
-"ghcr.io/douyu/juno-agent-dev:latest"
+"ghcr.io/douyu/juno-agent-dev:latest",
 "ghcr.io/douyu/mysql-dev:latest"
 ]
 }
